@@ -2,14 +2,12 @@
   <div id="app">
     <Nav />
     <Landing />
-    <Test />
   </div>
 </template>
 
 <script>
 import Landing from './components/Landing.vue';
 import Nav from './components/Nav.vue';
-import Test from './components/Test.vue';
 import '@/assets/css/tailwind.css';
 
 export default {
@@ -17,7 +15,6 @@ export default {
   components: {
     Landing,
     Nav,
-    Test,
   },
 };
 </script>
