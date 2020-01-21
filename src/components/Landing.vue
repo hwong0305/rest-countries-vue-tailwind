@@ -1,17 +1,17 @@
 <template>
   <div>
     <Search />
-    <div class="w-full flex flex-col items-center main__container">
+    <div class="w-full flex flex-wrap justify-center main__container">
       <div
         v-for="country in countries"
         :key="country.alpha3Code"
-        class="bg-white shadow-lg mt-12 w-3/4 text-left rounded-lg overflow-hidden"
+        class="bg-white shadow-lg mt-12 w-full h-full mx-12 sm:w-3/12 md:w-2/12 sm:mx-1/12 text-left rounded-lg mb-12"
       >
-        <img class="w-full shadow" :src="country.flag" />
-        <h1 class="font-bold ml-4 mt-2 text-2xl tracking-wider">
+        <img class="w-full object-fill shadow card__img" :src="country.flag" />
+        <h1 class="font-bold mx-4 mt-4 text-xl">
           {{ country.name }}
         </h1>
-        <p class="ml-4 mt-1 text-sm">
+        <p class="ml-4 mt-4 text-sm">
           <span class="font-semibold">Population:</span>
           {{ country.population }}
         </p>
@@ -19,7 +19,7 @@
           <span class="font-semibold">Region:</span>
           {{ country.region }}
         </p>
-        <p class="ml-4 mt-1 text-sm mb-6">
+        <p class="ml-4 mt-1 mb-6 text-sm">
           <span class="font-semibold">Capital:</span>
           {{ country.capital }}
         </p>
@@ -51,5 +51,8 @@ export default {
 <style scoped>
 .main__container {
   background: hsl(0, 0%, 98%);
+}
+.card__img {
+  height: 50%;
 }
 </style>
