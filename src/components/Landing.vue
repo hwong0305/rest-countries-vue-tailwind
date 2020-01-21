@@ -5,9 +5,12 @@
       <div
         v-for="country in countries"
         :key="country.alpha3Code"
-        class="bg-white shadow-lg mt-12 w-full h-full mx-12 sm:w-3/12 md:w-2/12 sm:mx-1/12 text-left rounded-lg mb-12"
+        class="bg-white flex flex-col shadow-lg mt-12 w-full h-full mx-12 sm:w-3/12 md:w-2/12 sm:mx-1/12 text-left rounded-lg mb-12"
       >
-        <img class="w-full object-fill shadow card__img" :src="country.flag" />
+        <img
+          class="w-full object-scale-down object-center card__img"
+          :src="country.flag"
+        />
         <h1 class="font-bold mx-4 mt-4 text-xl">
           {{ country.name }}
         </h1>
@@ -51,6 +54,7 @@ export default {
 <style scoped>
 .main__container {
   background: hsl(0, 0%, 98%);
+  height: 340px;
 }
 .card__img {
   height: 50%;

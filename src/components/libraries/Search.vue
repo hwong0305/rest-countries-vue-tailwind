@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap justify-around items-center search__container">
+  <div class="flex flex-wrap justify-between items-stretch search__container">
     <div
       class="relative w-full mx-8 mt-4 sm:w-1/3 inline-block shadow rounded overflow-hidden"
     >
@@ -17,7 +17,7 @@
         placeholder="Search for a country"
       />
     </div>
-    <div class="inline-block relative mt-4 rounded">
+    <div class="inline-block relative mt-4 mx-8 rounded">
       <select
         class="block appearance-none bg-white w-full h-full rounded px-4 py-2 pr-8 shadow focus:outline-none focus:shadow-outline"
       >
