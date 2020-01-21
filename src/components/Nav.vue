@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'nav',
+  name: "nav"
 };
 </script>
 
@@ -23,6 +23,6 @@ export default {
   background: hsl(0, 0%, 100%);
 }
 h3 {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
 </style>

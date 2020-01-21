@@ -20,6 +20,8 @@
     "@vue/cli-service": "^4.1.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-vue": "^5.0.0",
     "tailwindcss": "^1.1.4",
     "vue-template-compiler": "^2.6.10"
@@ -29,11 +31,18 @@
     "env": {
       "node": true
     },
+    "plugins": [
+      "prettier"
+    ],
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "plugin:prettier/recommended",
+      "eslint:recommended",
+      "prettier/vue"
     ],
-    "rules": {},
+    "rules": {
+      "prettier/prettier": "error"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

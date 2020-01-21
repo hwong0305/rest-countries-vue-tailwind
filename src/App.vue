@@ -6,16 +6,16 @@
 </template>
 
 <script>
-import Landing from './components/Landing.vue';
-import Nav from './components/Nav.vue';
-import '@/assets/css/tailwind.css';
+import Landing from "./components/Landing.vue";
+import Nav from "./components/Nav.vue";
+import "@/assets/css/tailwind.css";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Landing,
-    Nav,
-  },
+    Nav
+  }
 };
 </script>
 
