@@ -1,24 +1,27 @@
 <template>
   <div>
     <Search />
-    <div class="w-full container">
+    <div class="w-full flex flex-col items-center main__container">
       <div
         v-for="country in countries"
         :key="country.alpha3Code"
-        class="mx-auto bg-white shadow-lg w-1/2 mt-12"
+        class="bg-white shadow-lg mt-12 w-3/4 text-left rounded-lg overflow-hidden"
       >
         <img class="w-full" :src="country.flag" />
-        <p>
-          <strong>Name:</strong>
+        <h1 class="font-bold ml-4 mt-2 text-2xl tracking-wider">
           {{ country.name }}
+        </h1>
+        <p class="ml-4 mt-1 text-sm">
+          <span class="font-semibold">Population:</span>
+          {{ country.population }}
         </p>
-        <p>
-          <strong>Region:</strong>
+        <p class="ml-4 mt-1 text-sm">
+          <span class="font-semibold">Region:</span>
           {{ country.region }}
         </p>
-        <p>
-          <strong>Population</strong>
-          {{ country.population }}
+        <p class="ml-4 mt-1 text-sm mb-6">
+          <span class="font-semibold">Capital:</span>
+          {{ country.capital }}
         </p>
       </div>
     </div>
@@ -45,4 +48,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.main__container {
+  background: hsl(0, 0%, 98%);
+}
+</style>
