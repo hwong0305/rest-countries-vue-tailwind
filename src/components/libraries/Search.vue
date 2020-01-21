@@ -14,19 +14,21 @@
       <input
         class="block py-2 pl-8 w-full h-full bg-white text-gray-700"
         type="text"
+        v-model="query"
         placeholder="Search for a country"
       />
     </div>
     <div class="inline-block relative mt-4 mx-8 rounded">
       <select
+        v-model="region"
         class="block appearance-none bg-white w-full h-full rounded px-4 py-2 pr-8 shadow focus:outline-none focus:shadow-outline"
       >
-        <option>Filter by Region</option>
-        <option>Africa</option>
-        <option>America</option>
-        <option>Asia</option>
-        <option>Europe</option>
-        <option>Oceania</option>
+        <option value="0">Filter by Region</option>
+        <option value="Africa">Africa</option>
+        <option value="America">America</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
       </select>
       <div
         class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
@@ -47,7 +49,13 @@
 
 <script>
 export default {
-  name: "Search"
+  name: "Search",
+  data() {
+    return {
+      region: 0,
+      query: ""
+    };
+  }
 };
 </script>
 

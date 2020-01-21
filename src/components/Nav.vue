@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
 #nav {
-  height: 50px;
+  height: 80px;
   background: hsl(0, 0%, 100%);
 }
 h3 {

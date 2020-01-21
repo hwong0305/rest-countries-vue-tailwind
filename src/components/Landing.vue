@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-20">
     <Search />
     <div class="w-full flex flex-wrap justify-center main__container">
       <div
