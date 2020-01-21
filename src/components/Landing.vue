@@ -7,7 +7,7 @@
         :key="country.alpha3Code"
         class="bg-white shadow-lg mt-12 w-3/4 text-left rounded-lg overflow-hidden"
       >
-        <img class="w-full" :src="country.flag" />
+        <img class="w-full shadow" :src="country.flag" />
         <h1 class="font-bold ml-4 mt-2 text-2xl tracking-wider">
           {{ country.name }}
         </h1>

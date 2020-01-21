@@ -36,12 +36,14 @@
     ],
     "extends": [
       "plugin:vue/essential",
-      "plugin:prettier/recommended",
       "eslint:recommended",
+      "prettier",
       "prettier/vue"
     ],
     "rules": {
-      "prettier/prettier": "error"
+      "prettier/prettier": [
+        "error"
+      ]
     },
     "parserOptions": {
       "parser": "babel-eslint"
