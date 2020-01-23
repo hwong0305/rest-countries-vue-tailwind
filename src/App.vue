@@ -1,19 +1,17 @@
 <template>
   <div id="app">
     <Nav />
-    <Landing />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Landing from "./components/Landing.vue";
 import Nav from "./components/Nav.vue";
 import "@/assets/css/tailwind.css";
 
 export default {
   name: "app",
   components: {
-    Landing,
     Nav
   }
 };
