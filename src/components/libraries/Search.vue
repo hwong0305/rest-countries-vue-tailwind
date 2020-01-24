@@ -63,4 +63,11 @@ export default {
 .search__container {
   background: hsl(0, 0%, 98%);
 }
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+select {
+  background: transparent;
+}
 </style>

@@ -5,7 +5,7 @@
       <div
         v-for="country in countries"
         :key="country.alpha3Code"
-        class="bg-white flex flex-col shadow-lg mt-12 w-full h-full mx-12 sm:w-3/12 md:w-2/12 sm:mx-1/12 text-left rounded-lg mb-12"
+        class="bg-white flex flex-col shadow-lg mt-12 w-full mx-12 sm:w-3/12 md:w-2/12 sm:mx-1/12 text-left rounded-lg mb-12"
       >
         <img
           class="w-full object-scale-down object-center card__img"
