@@ -1,6 +1,6 @@
 <template>
-  <div class="main__container mt-20 w-full text-left px-12 flex flex-wrap">
-    <div class="w-full">
+  <div class="mt-20 w-full h-screen text-left px-12">
+    <div class="w-full top">
       <button
         class="mt-6 shadow border border-solid border-gray-400 w-16 h-8 rounded"
         @click="back"
@@ -8,8 +8,8 @@
         Back
       </button>
     </div>
-    <img :src="flag" :alt="name" class="w-full mt-6 lg:w-1/2" />
-    <div class="lg:w-1/2 mt-8">
+    <img :src="flag" :alt="name" class="w-full mt-6 lg:w-1/2 lg:float-left" />
+    <div class="lg:w-1/2 lg:float-right mt-8">
       <h2 class="font-bold text-3xl w-full lg:pl-24 tracking-wider">
         {{ name }}
       </h2>
@@ -124,11 +124,17 @@ export default {
 </script>
 
 <style scoped>
-.main__container {
-  background: hsl(0, 0%, 98%);
-}
 body {
   font-size: 16px;
+  background: var(--background-color);
+}
+.top {
+  height: 80px;
+}
+button,
+h2,
+p {
+  color: var(--text-color);
 }
 * {
   box-sizing: border-box;

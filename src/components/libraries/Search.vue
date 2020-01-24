@@ -4,7 +4,7 @@
       class="relative w-full mx-8 mt-4 sm:w-1/3 inline-block shadow rounded overflow-hidden"
     >
       <div
-        class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-2 bg-white"
+        class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-2 custom"
       >
         <font-awesome-icon
           :icon="['fas', 'search']"
@@ -12,7 +12,7 @@
         />
       </div>
       <input
-        class="block py-2 pl-8 w-full h-full bg-white text-gray-700"
+        class="block py-2 pl-8 w-full h-full custom text-gray-700"
         type="text"
         v-model="query"
         placeholder="Search for a country"
@@ -21,7 +21,7 @@
     <div class="inline-block relative mt-4 mx-8 rounded">
       <select
         v-model="region"
-        class="block appearance-none bg-white w-full h-full rounded px-4 py-2 pr-8 shadow focus:outline-none focus:shadow-outline"
+        class="block appearance-none custom w-full h-full rounded px-4 py-2 pr-8 shadow focus:outline-none focus:shadow-outline"
       >
         <option value="0">Filter by Region</option>
         <option value="Africa">Africa</option>
@@ -59,15 +59,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .search__container {
-  background: hsl(0, 0%, 98%);
+  background: var(--background-color);
 }
 select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
-}
-select {
-  background: transparent;
 }
 </style>

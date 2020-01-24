@@ -1,11 +1,11 @@
 <template>
-  <div class="mt-20">
+  <div class="mt-20 overflow-auto h-full">
     <Search />
     <div class="w-full flex flex-wrap justify-center main__container">
       <div
         v-for="country in countries"
         :key="country.alpha3Code"
-        class="bg-white flex flex-col shadow-lg mt-12 w-full mx-12 sm:w-3/12 md:w-2/12 sm:mx-1/12 text-left rounded-lg mb-12 cursor-pointer"
+        class="custom flex flex-col shadow-lg mt-12 w-full mx-12 sm:w-3/12 md:w-2/12 sm:mx-1/12 text-left rounded-lg pb-24 cursor-pointer"
       >
         <div @click="navigate(country.alpha3Code)">
           <img
@@ -60,10 +60,10 @@ export default {
 
 <style scoped>
 body {
-  font-size: 13px;
+  font-size: 14px;
 }
 .main__container {
-  background: hsl(0, 0%, 98%);
+  background: var(--background-color);
   height: 340px;
 }
 .card__img {
