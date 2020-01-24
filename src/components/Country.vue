@@ -52,6 +52,37 @@ export default {
       border: []
     };
   },
+  watch: {
+    async $route(to) {
+      const { id } = to.params;
+      const response = await fetch(
+        `https://restcountries.eu/rest/v2/alpha/${id}`
+      );
+      const {
+        name,
+        capital,
+        region,
+        subregion,
+        population,
+        nativeName,
+        flag,
+        languages,
+        topLevelDomain,
+        currencies
+      } = await response.json();
+
+      this.name = name;
+      this.flag = flag;
+      this.nativeName = nativeName;
+      this.population = population;
+      this.region = region;
+      this.subRegion = subregion;
+      this.capital = capital;
+      this.language = languages.map(e => e.name).toString();
+      this.domain = topLevelDomain.toString();
+      this.currency = currencies.map(e => e.name).toString();
+    }
+  },
   async mounted() {
     const response = await fetch(
       `https://restcountries.eu/rest/v2/alpha/${this.$route.params.id}`
