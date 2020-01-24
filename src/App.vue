@@ -37,14 +37,16 @@ export default {
     updateCSS() {
       if (!this.dark) {
         this.dark = true;
-        this.$el.style.setProperty("--background-color", "hsl(207, 26%, 17%)");
+        this.$el.style.setProperty("--background-color", "hsl(209, 23%, 22%)");
         this.$el.style.setProperty("--element-color", "hsl(209, 23%, 22%)");
         this.$el.style.setProperty("--text-color", "hsl(0, 0%, 100%)");
+        this.$el.style.setProperty("--element-color", "hsl(209, 23%, 22%)");
       } else {
         this.dark = false;
         this.$el.style.setProperty("--background-color", "hsl(0, 0%, 98%)");
         this.$el.style.setProperty("--element-color", "hsl(0, 0%, 100%)");
         this.$el.style.setProperty("--text-color", "hsl(200, 15%, 8%)");
+        this.$el.style.setProperty("--element-color", "hsl(0, 0%, 98%)");
       }
     }
   }
@@ -69,6 +71,10 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+.element {
+  color: var(--text-color);
+  background: var(--element-color);
 }
 #nav {
   height: 80px;

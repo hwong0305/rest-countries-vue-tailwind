@@ -55,6 +55,22 @@ export default {
   methods: {
     back() {
       this.$router.back();
+    },
+    async updateData(url) {
+      const response = await fetch(`${url}`);
+      const data = await response.json();
+
+      this.name = data.name;
+      this.flag = data.flag;
+      this.nativeName = data.nativeName;
+      this.population = data.population;
+      this.region = data.region;
+      this.subRegion = data.subregion;
+      this.capital = data.capital;
+      this.language = data.languages.map(e => e.name).toString();
+      this.domain = data.topLevelDomain.toString();
+      this.currency = data.currencies.map(e => e.name).toString();
+      this.border = data.borders;
     }
   },
   data() {
@@ -75,66 +91,13 @@ export default {
   watch: {
     async $route(to) {
       const { id } = to.params;
-      const response = await fetch(
-        `https://restcountries.eu/rest/v2/alpha/${id}`
-      );
-      const {
-        name,
-        capital,
-        region,
-        subregion,
-        population,
-        nativeName,
-        flag,
-        languages,
-        topLevelDomain,
-        currencies,
-        borders
-      } = await response.json();
-
-      this.name = name;
-      this.flag = flag;
-      this.nativeName = nativeName;
-      this.population = population;
-      this.region = region;
-      this.subRegion = subregion;
-      this.capital = capital;
-      this.language = languages.map(e => e.name).toString();
-      this.domain = topLevelDomain.toString();
-      this.currency = currencies.map(e => e.name).toString();
-      this.border = borders;
+      await this.updateData(`https://restcountries.eu/rest/v2/alpha/${id}`);
     }
   },
   async mounted() {
-    const response = await fetch(
+    await this.updateData(
       `https://restcountries.eu/rest/v2/alpha/${this.$route.params.id}`
     );
-
-    const {
-      name,
-      capital,
-      region,
-      subregion,
-      population,
-      nativeName,
-      flag,
-      languages,
-      topLevelDomain,
-      currencies,
-      borders
-    } = await response.json();
-
-    this.name = name;
-    this.flag = flag;
-    this.nativeName = nativeName;
-    this.population = population;
-    this.region = region;
-    this.subRegion = subregion;
-    this.capital = capital;
-    this.language = languages.map(e => e.name).toString();
-    this.domain = topLevelDomain.toString();
-    this.currency = currencies.map(e => e.name).toString();
-    this.border = borders;
   }
 };
 </script>
