@@ -5,6 +5,7 @@
     <div class="w-full">
       <button
         class="mt-6 shadow border border-solid border-gray-400 w-16 h-8 rounded"
+        @click="back"
       >
         Back
       </button>
@@ -37,6 +38,11 @@
 <script>
 export default {
   name: "Country",
+  methods: {
+    back() {
+      this.$router.back();
+    }
+  },
   data() {
     return {
       name: "",
