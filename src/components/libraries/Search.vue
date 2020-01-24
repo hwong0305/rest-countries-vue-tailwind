@@ -25,7 +25,7 @@
       >
         <option value="0">Filter by Region</option>
         <option value="Africa">Africa</option>
-        <option value="America">America</option>
+        <option value="Americas">America</option>
         <option value="Asia">Asia</option>
         <option value="Europe">Europe</option>
         <option value="Oceania">Oceania</option>
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import _ from "underscore";
 export default {
   name: "Search",
   data() {
@@ -55,6 +56,36 @@ export default {
       region: 0,
       query: ""
     };
+  },
+  mounted() {
+    if (this.$route.query.search) {
+      this.query = this.$route.query.search;
+    }
+    if (this.$route.query.region) {
+      this.region = this.$route.query.region;
+    }
+  },
+  watch: {
+    query: _.debounce(function() {
+      const route = {
+        name: "countries"
+      };
+      if (this.query !== "") {
+        route.query = {
+          search: this.query
+        };
+      }
+      this.$router.push(route);
+    }, 700),
+    region: function() {
+      const route = { name: "countries" };
+      if (!this.region !== 0) {
+        route.query = {
+          region: this.region
+        };
+      }
+      this.$router.push(route);
+    }
   }
 };
 </script>

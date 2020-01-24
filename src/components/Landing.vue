@@ -46,13 +46,59 @@ export default {
     };
   },
   async mounted() {
-    const response = await fetch("https://restcountries.eu/rest/v2/all");
+    let response;
+    if (this.$route.query.search) {
+      response = await fetch(
+        `https://restcountries.eu/rest/v2/name/${this.$route.query.search}`
+      );
+    } else if (this.$route.query.region && this.$route.query.region !== "0") {
+      response = await fetch(
+        `https://restcountries.eu/rest/v2/region/${this.$route.query.region}`
+      );
+    } else {
+      response = await fetch("https://restcountries.eu/rest/v2/all");
+    }
     const data = await response.json();
     this.countries = data;
   },
   methods: {
     navigate(path) {
       this.$router.push(path);
+    }
+  },
+  watch: {
+    "$route.query.search": async function() {
+      let response;
+      if (this.$route.query.search) {
+        response = await fetch(
+          `https://restcountries.eu/rest/v2/name/${this.$route.query.search}`
+        );
+      } else {
+        response = await fetch("https://restcountries.eu/rest/v2/all");
+      }
+      if (response.status === 404) {
+        this.data = null;
+        return;
+      }
+      const data = await response.json();
+      this.countries = data;
+    },
+    "$route.query.region": async function() {
+      console.log(this.$route.query);
+      let response;
+      if (!this.$route.query.region || this.$route.query.region === "0") {
+        response = await fetch("https://restcountries.eu/rest/v2/all");
+      } else {
+        response = await fetch(
+          `https://restcountries.eu/rest/v2/region/${this.$route.query.region}`
+        );
+      }
+      if (response.status === 404) {
+        this.data = null;
+        return;
+      }
+      const data = await response.json();
+      this.countries = data;
     }
   }
 };
