@@ -4,7 +4,13 @@
       class="inset-0 absolute flex items-center justify-between shadow"
       id="nav"
     >
-      <h3 class="ml-6 font-semibold custom">Where in the world?</h3>
+      <h3
+        @click="goHome"
+        class="ml-6 font-semibold custom cursor-pointer"
+        role="button"
+      >
+        Where in the world?
+      </h3>
       <button class="mr-6 custom" @click="updateCSS">
         <font-awesome-icon :icon="['fas', 'moon']" />
         Dark Mode
@@ -25,6 +31,9 @@ export default {
     };
   },
   methods: {
+    goHome() {
+      this.$router.push("/");
+    },
     updateCSS() {
       if (!this.dark) {
         this.dark = true;

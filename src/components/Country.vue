@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-20 w-full h-screen text-left px-12">
+  <div class="mt-20 w-full h-full text-left px-12 overflow-auto">
     <div class="w-full top">
       <button
         class="mt-6 shadow border border-solid border-gray-400 w-16 h-8 rounded"
@@ -30,8 +30,20 @@
         <p class="leading-loose">
           <strong>Top Level Domain:</strong> {{ domain }}
         </p>
-        <p class="leading-loose"><strong>Currencies</strong> {{ currency }}</p>
-        <p class="leading-loose"><strong>Languages</strong> {{ language }}</p>
+        <p class="leading-loose"><strong>Currencies:</strong> {{ currency }}</p>
+        <p class="leading-loose"><strong>Languages:</strong> {{ language }}</p>
+      </div>
+      <div class="lg:w-1/2 mt-8 lg:ml-24 mb-24 custom">
+        <div class="flex flex-wrap w-full">
+          <span class="leading-loose"><strong>Borders:</strong></span>
+          <span v-for="cn in border" :key="cn">
+            <router-link
+              :to="cn"
+              class="ml-2 border border-solid border-gray-400 px-2 leading-loose"
+              >{{ cn }}</router-link
+            >
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -76,7 +88,8 @@ export default {
         flag,
         languages,
         topLevelDomain,
-        currencies
+        currencies,
+        borders
       } = await response.json();
 
       this.name = name;
@@ -89,6 +102,7 @@ export default {
       this.language = languages.map(e => e.name).toString();
       this.domain = topLevelDomain.toString();
       this.currency = currencies.map(e => e.name).toString();
+      this.border = borders;
     }
   },
   async mounted() {
@@ -106,7 +120,8 @@ export default {
       flag,
       languages,
       topLevelDomain,
-      currencies
+      currencies,
+      borders
     } = await response.json();
 
     this.name = name;
@@ -119,6 +134,7 @@ export default {
     this.language = languages.map(e => e.name).toString();
     this.domain = topLevelDomain.toString();
     this.currency = currencies.map(e => e.name).toString();
+    this.border = borders;
   }
 };
 </script>

@@ -7,7 +7,7 @@
         :key="country.alpha3Code"
         class="custom flex flex-col shadow-lg mt-12 w-full mx-12 sm:w-3/12 md:w-2/12 sm:mx-1/12 text-left rounded-lg pb-24 cursor-pointer"
       >
-        <div @click="navigate(country.alpha3Code)">
+        <div @click="navigate(country.alpha3Code)" role="button">
           <img
             class="w-full object-scale-down object-center card__img"
             :src="country.flag"
