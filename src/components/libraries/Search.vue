@@ -1,14 +1,14 @@
 <template>
   <div class="flex flex-wrap justify-between items-stretch search__container">
     <div
-      class="relative w-full mx-8 mt-4 sm:w-1/3 inline-block shadow rounded overflow-hidden"
+      class="relative w-full mx-8 mt-4 sm:w-1/3 inline-block shadow rounded overflow-hidden focus:border focus:border-blue-400"
     >
       <div
-        class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-2 custom"
+        class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-2 bg-transparent"
       >
         <font-awesome-icon
           :icon="['fas', 'search']"
-          class="fill-current h-4 w-4 pointer-events-none"
+          class="h-4 w-4 pointer-events-none"
         />
       </div>
       <input
@@ -17,6 +17,13 @@
         v-model="query"
         placeholder="Search for a country"
       />
+      <button
+        v-if="active"
+        @click="clearInput"
+        class="absolute right-0 inset-y-0 mr-2 py-2 focus:outline-none clear"
+      >
+        x
+      </button>
     </div>
     <div class="inline-block relative mt-4 mx-8 rounded">
       <select
@@ -56,6 +63,16 @@ export default {
       region: 0,
       query: ""
     };
+  },
+  methods: {
+    clearInput() {
+      this.query = "";
+    }
+  },
+  computed: {
+    active: function() {
+      return !!this.query;
+    }
   },
   mounted() {
     if (this.$route.query.search) {
@@ -97,5 +114,8 @@ export default {
 select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+.clear {
+  font-size: 16px;
 }
 </style>
